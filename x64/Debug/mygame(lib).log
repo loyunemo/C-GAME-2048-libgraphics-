@@ -1,2 +1,2 @@
-﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(1092,5): error MSB6006: “link.exe”已退出，代码为 1168。
-LINK : fatal error LNK1168: 无法打开 D:\learning\C程大作业游戏\mygame（libgraphics）\mygame(lib)\x64\Debug\mygame(lib).exe 进行写入
+﻿  main.c
+  mygame(lib).vcxproj -> D:\learning\C程大作业游戏\mygame（libgraphics）\mygame(lib)\x64\Debug\mygame(lib).exe

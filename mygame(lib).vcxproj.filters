@@ -78,6 +78,7 @@
     <None Include="x64\Debug\mygame(lib).ilk" />
     <None Include="x64\Debug\mygame(lib).pdb" />
     <None Include="x64\Debug\vc143.pdb" />
+    <None Include="function-instruction.md" />
   </ItemGroup>
   <ItemGroup>
     <Object Include="x64\Debug\exceptio.obj" />

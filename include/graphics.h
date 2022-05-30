@@ -181,4 +181,6 @@ void cancelCharEvent();
 void cancelMouseEvent();
 void cancelTimerEvent();
 void RefreshWindow();
+double WindowX(int x);
+double WindowY(int y);
 #endif

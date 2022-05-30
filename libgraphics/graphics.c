@@ -2000,3 +2000,12 @@ void RefreshWindow()
 {
     SendMessage(graphicsWindow, WM_PAINT, 0, 0);
 }
+double WindowX(int x)
+{
+    return (double)x / xResolution;
+}
+
+double WindowY(int y)
+{
+    return GetWindowHeight() - (double)y / yResolution;
+}

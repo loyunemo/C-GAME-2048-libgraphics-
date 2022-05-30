@@ -13,7 +13,7 @@ void initUI()
 {
 	MovePen(0.01, GetWindowHeight() - 0.2);
 	DrawTextString("²Ëµ¥");
-	
+	MovePen(0, 0);
 }
 void settings()
 {
@@ -30,10 +30,13 @@ void startGame()
 
 void enter(int x,int y,int button, int event )
 {
-	 
+	double sx, sy;
+	sx = WindowX(x);
+	sy = WindowY(y);
 	double windowSize[2] = { GetWindowWidth(), GetWindowHeight() };
+	
 	double center[2] = { windowSize[0] / 2, windowSize[1] / 2 };
-	if (y > (GetWindowHeight() - 0.3) && x < (windowSize[0] / 12))
+	if (sy> (GetWindowHeight() - 0.2) && sx < (windowSize[0] / 12))
 	{
 		RefreshWindow();
 		SetPenColor("GREEN");
@@ -45,8 +48,9 @@ void enter(int x,int y,int button, int event )
 		DrawLine(0, 0.3);
 		EndFilledRegion();
 		SetPenColor("BLACK");
+		MovePen(0.01, GetWindowHeight() - 0.2);
 		DrawTextString("²Ëµ¥");
-	}
+	
 		if (button == LEFT_BUTTON && event == BUTTON_DOWN)
 		{
 			statecheck++;
@@ -88,5 +92,22 @@ void enter(int x,int y,int button, int event )
 			}
 			
 		}
-	
+		
+
+	}
+	else
+	{
+		RefreshWindow();
+		SetPenColor("WHITE");
+		MovePen(0, GetWindowHeight());
+		StartFilledRegion(1.0);
+		DrawLine(windowSize[0] / 12, 0);
+		DrawLine(0, -0.3);
+		DrawLine(-windowSize[0] / 12, 0);
+		DrawLine(0, 0.3);
+		EndFilledRegion();
+		SetPenColor("BLACK");
+		MovePen(0.01, GetWindowHeight() - 0.2);
+		DrawTextString("²Ëµ¥");
+	}
 }

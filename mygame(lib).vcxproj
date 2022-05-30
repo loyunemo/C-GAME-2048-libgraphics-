@@ -163,6 +163,7 @@
     <ClCompile Include="main.c" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="function-instruction.md" />
     <None Include="x64\Debug\graphics.obj.enc" />
     <None Include="x64\Debug\main.obj.enc" />
     <None Include="x64\Debug\mygame(lib).exe" />
