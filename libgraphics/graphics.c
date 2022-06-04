@@ -85,7 +85,7 @@ KeyboardEventCallback g_keyboard = NULL;
 MouseEventCallback g_mouse = NULL;
 TimerEventCallback g_timer = NULL;
 CharEventCallback g_char = NULL;
-
+OnPaintCallback g_onpaint = NULL;
 /*
  * Type: graphicsStateT
  * --------------------
@@ -793,7 +793,7 @@ void InitConsole(void)
 
 void repaint()
 {
-    InvalidateRect(graphicsWindow, NULL, 1);
+    InvalidateRect(graphicsWindow, NULL, FALSE);
     UpdateWindow(graphicsWindow);
 }
 
@@ -1074,6 +1074,8 @@ static LONG FAR PASCAL GraphicsEventProc(HWND hwnd, UINT msg,
     {
         case WM_PAINT:
              DoUpdate();
+             if (g_onpaint != NULL)
+                 g_onpaint();
              return 0;
              
         case WM_CHAR:
@@ -1231,7 +1233,7 @@ static void DisplayClear(void)
     RECT r;
 
     SetRect(&r, 0, 0, pixelWidth, pixelHeight);
-    InvalidateRect(graphicsWindow, &r, TRUE);
+    InvalidateRect(graphicsWindow, &r, FALSE);
     BitBlt(osdc, 0, 0, pixelWidth, pixelHeight, osdc, 0, 0, WHITENESS);
 }
 
@@ -1291,7 +1293,7 @@ static void DisplayLine(double x, double y, double dx, double dy)
     y1 = ScaleY(y + dy);
     if (regionState == NoRegion) {
         SetLineBB(&r, x, y, dx, dy);
-        InvalidateRect(graphicsWindow, &r, TRUE);
+        InvalidateRect(graphicsWindow, &r, FALSE);
         MoveToEx(osdc, x0, y0, NULL);
         LineTo(osdc, x1, y1);
     } else {
@@ -1319,7 +1321,7 @@ static void DisplayArc(double xc, double yc, double rx, double ry,
 
     PrepareToDraw();
     SetArcBB(&r, xc, yc, rx, ry, start, sweep);
-    InvalidateRect(graphicsWindow, &r, TRUE);
+    InvalidateRect(graphicsWindow, &r, FALSE);
     xmin = ScaleX(xc - rx);
     ymin = ScaleY(yc + ry);
     xmax = xmin + PixelsX(2 * rx);
@@ -1395,7 +1397,7 @@ static void DisplayText(double x, double y, string text)
 
     PrepareToDraw();
     SetTextBB(&r, x, y, text);
-    InvalidateRect(graphicsWindow, &r, TRUE);
+    InvalidateRect(graphicsWindow, &r, FALSE);
     SetBkMode(osdc, TRANSPARENT);
     TextOut(osdc, ScaleX(x), ScaleY(y) - fontTable[currentFont].ascent, text, strlen(text));
     SetBkMode(osdc, OPAQUE);
@@ -1640,7 +1642,7 @@ static void DisplayPolygon(void)
     HPEN oldPen, fillPen;
 
     PrepareToDraw();
-    InvalidateRect(graphicsWindow, &polygonBounds, TRUE);
+    InvalidateRect(graphicsWindow, &polygonBounds, FALSE);
     if (eraseMode) {
         px = 0;
         fillPen = erasePen;
@@ -1956,11 +1958,15 @@ void registerTimerEvent(TimerEventCallback callback)
 {
 	g_timer = callback;
 }
-
+void registerOnPaintEvent(OnPaintCallback callback)
+{
+    g_onpaint = callback;
+}
 void cancelKeyboardEvent()
 {
     g_keyboard = NULL;
 }
+
 
 void cancelCharEvent()
 {
@@ -1975,6 +1981,10 @@ void cancelMouseEvent()
 void cancelTimerEvent()
 {
     g_timer = NULL;
+}
+void cancelOnPaintEvent(OnPaintCallback callback)
+{
+    g_onpaint = NULL;
 }
 
 void startTimer(int id,int timeinterval)

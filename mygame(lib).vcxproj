@@ -144,9 +144,12 @@
   <ItemGroup>
     <ClInclude Include="include\exception.h" />
     <ClInclude Include="include\extgraph.h" />
+    <ClInclude Include="include\fundamental.h" />
+    <ClInclude Include="include\game.h" />
     <ClInclude Include="include\gcalloc.h" />
     <ClInclude Include="include\genlib.h" />
     <ClInclude Include="include\graphics.h" />
+    <ClInclude Include="include\map.h" />
     <ClInclude Include="include\random.h" />
     <ClInclude Include="include\simpio.h" />
     <ClInclude Include="include\strlib.h" />
@@ -154,8 +157,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="libgraphics\exceptio.c" />
+    <ClCompile Include="libgraphics\fundamental.c" />
+    <ClCompile Include="libgraphics\game.c" />
     <ClCompile Include="libgraphics\genlib.c" />
     <ClCompile Include="libgraphics\graphics.c" />
+    <ClCompile Include="libgraphics\map.c" />
     <ClCompile Include="libgraphics\random.c" />
     <ClCompile Include="libgraphics\simpio.c" />
     <ClCompile Include="libgraphics\strlib.c" />
@@ -164,6 +170,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="function-instruction.md" />
+    <None Include="README.md" />
     <None Include="x64\Debug\graphics.obj.enc" />
     <None Include="x64\Debug\main.obj.enc" />
     <None Include="x64\Debug\mygame(lib).exe" />

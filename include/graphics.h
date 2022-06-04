@@ -170,7 +170,9 @@ typedef void (*KeyboardEventCallback) (int key,int event);
 typedef void (*CharEventCallback) (char c);
 typedef void (*MouseEventCallback) (int x, int y, int button, int event);
 typedef void (*TimerEventCallback) (int timerID);
+typedef void (*OnPaintCallback) ();
 
+void registerOnPaintEvent(OnPaintCallback callback);
 void registerKeyboardEvent(KeyboardEventCallback callback);
 void registerCharEvent(CharEventCallback callback);
 void registerMouseEvent(MouseEventCallback callback);

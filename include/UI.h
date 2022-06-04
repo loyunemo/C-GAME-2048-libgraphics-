@@ -6,14 +6,19 @@
 #include <math.h>
 #include "random.h"
 #include "simpio.h"
+#include <string.h>
 #include "strlib.h"
 #include "gcalloc.h"
 #include "graphics.h"
+#include "fundamental.h"
+void change(int x, int y, int button, int event);
 void initUI();
 static void menu();
 void settings();
 void ranking();
-void startGame();
+static void startGame();
 void enter(int x,int y,int button, int event);
-
+void menufontarea();
+void mode(int i);
+void changes();
 #endif 
