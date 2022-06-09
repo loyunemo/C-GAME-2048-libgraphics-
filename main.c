@@ -29,6 +29,8 @@ void Main()
 {
 	InitGraphics();
 	initUI(); 
+	statisticload(4);
+	initialSquare();
 	MovePen(GetWindowHeight() * 3.0 / 4, GetWindowHeight() * 3.0 / 4);
 	/*boxarea();*/
 	registerOnPaintEvent(changes);
@@ -37,23 +39,8 @@ void Main()
 		
 	
 }
-/*void statisticload(int length)
-{
-	int k, q;
-	for (k = 0; k < length;k++)
-	{
-		for (q = 0; q < length; q++)
-		{
-			box [k] [q] .i = 0;
-			box [k] [q] .number = k * 4 + q + 1;
-			box [k] [q] .x = getboxx(k);
-			box [k] [q] .y = getboxy(q);
 
-		}
-	}
-	return;
-}
-void changes()
+/*void changes()
 {
 	switch (station)
 	{

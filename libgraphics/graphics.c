@@ -1716,9 +1716,17 @@ static void InitColors(void)
     DefineColor("Yellow", 1, 1, 0);
     DefineColor("Green", 0, 1, 0);
     DefineColor("Blue", 0, 0, 1);
+    DefineColor("Sky Blue", .94, 1, 1);
     DefineColor("Violet", .93, .5, .93);
     DefineColor("Magenta", 1, 0, 1);
     DefineColor("Cyan", 0, 1, 1);
+    DefineColor("Tomato", 1, .39, .28);
+    DefineColor("Yellow Gray", 1, .92, .80);
+    DefineColor("Dougello", 1, .60, .7);
+    DefineColor("Golden",1, .84, 0);
+    DefineColor("Pured",.86,.63,.86);
+    DefineColor("Grass Green", .48, .98, 0);
+
 }
 
 /*

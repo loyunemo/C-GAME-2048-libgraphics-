@@ -4,7 +4,7 @@
 #include <map.h>
 static int statecheck=0;
 static int station=1;
-static boxset box[4][4];
+extern boxset box[4][4];
 void change(int x,int y,int button,int event)/*切换界面*/
 {
 	double sx, sy;
@@ -31,7 +31,7 @@ void initUI()
 {
 	
 	/*InitGraphics();*/
-	menu();
+	/*menu();*/
 	settings();
 	/*ranking();*/
 	startGame();
@@ -76,7 +76,7 @@ void enter(int x,int y,int button, int event )
 	double windowSize[2] = { GetWindowWidth(), GetWindowHeight() };
 	
 	double center[2] = { windowSize[0] / 2, windowSize[1] / 2 };
-	if (sy> (GetWindowHeight() - 0.2) && sx < (windowSize[0] / 12))
+	/*if (sy> (GetWindowHeight() - 0.2) && sx < (windowSize[0] / 12))
 	{
 		RefreshWindow();
 		SetPenColor("Green");
@@ -130,15 +130,15 @@ void enter(int x,int y,int button, int event )
 				SetPenColor("Black");
 				DrawTextString("菜单");
 				SetPenColor("White");
-				/*settings();*/
+				settings();
 				mode(2);
 			}
 			
 		}
 		
 
-	}
-	else if (sx<2 * GetWindowWidth() / 3 && sx>GetWindowWidth() / 3 && sy < 4 * GetWindowHeight() / 7 && sy>3 * GetWindowHeight() / 7)
+	}*/
+	if (sx<2 * GetWindowWidth() / 3 && sx>GetWindowWidth() / 3 && sy < 4 * GetWindowHeight() / 7 && sy>3 * GetWindowHeight() / 7)
 	{
 
 		if (button == LEFT_BUTTON && event == BUTTON_DOWN)
@@ -159,9 +159,9 @@ void enter(int x,int y,int button, int event )
 	{
 		RefreshWindow();
 		SetPenColor("White");
-		menufontarea();
+		/*menufontarea();
 		MovePen(0.01, GetWindowHeight() - 0.2);
-		DrawTextString("菜单");
+		DrawTextString("菜单");*/
 		DrawBox();
 	}
 }
@@ -197,11 +197,17 @@ void changes()
 
 	case 2:
 		InitGraphics();
+		
+		DrawGameArea(4);
+		Drawinitial();
+		registerKeyboardEvent(logic);
 		cancelMouseEvent();//*registerKeyboardEvent(enter);*//
+
 		break;
 	case 3:
 		//initGame();
 		InitGraphics();
+		
 		break;
 	case 4:
 		//initRanking();
