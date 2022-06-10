@@ -355,17 +355,21 @@ void logic(int key)
 	{
 		for (int i = 0; i < 4; i++)
 		{
-			for (int j = 3; j >= 1; j--)
+			for (int j = 0; j < 3; j++)
 			{
-				if (box[i][j].i&&box[i][j].i == box[i][j - 1].i)
+				if (box[i][j].i)
 				{
-					box[i][j - 1].i = 0;
-					box[i][j].i *= 2;
-				}
-				else if (box[i][j].i == 0)
-				{
-					box[i][j].i = box[i][j - 1].i;
-					box[i][j - 1].i = 0;
+					if (box[i][j + 1].i == box[i][j].i)
+
+					{
+						box[i][j].i = 0;
+						box[i][j + 1].i *= 2;
+					}
+					else if (box[i][j + 1].i == 0)
+					{
+						box[i][j + 1].i = box[i][j].i;
+						box[i][j].i = 0;
+					}
 				}
 			}
 		}
@@ -374,21 +378,84 @@ void logic(int key)
 	{
 		for (int i = 0; i < 4; i++)
 		{
-			for (int j = 0; j < 3; j++)
+			for (int j = 3; j > 0; j--)
 			{
-				if (box[i][j].i&&box[i][j].i == box[i][j + 1].i)
+				if (box[i][j].i)
 				{
-					box[i][j + 1].i = 0;
-					box[i][j].i *= 2;
-				}
-				else if (box[i][j].i == 0)
-				{
-					box[i][j].i = box[i][j + 1].i;
-					box[i][j + 1].i = 0;
+					if (box[i][j].i == box[i][j - 1].i)
+					{
+						box[i][j].i = 0;
+						box[i][j - 1].i *= 2;
+					}
+					else if (box[i][j - 1].i == 0)
+					{
+						box[i][j - 1].i = box[i][j].i;
+						box[i][j].i = 0;
+					}
 				}
 			}
 		}
 	}
-	
+	else if (key == 38)/*ио*/
+	{
+		for (int j = 0; j < 4; j++)
+		{
+			for (int i = 3; i > 0; i--)
+			{
+				if (box[i][j].i)
+				{
+					if (box[i - 1][j].i == box[i][j].i)
+					{
+						box[i][j].i = 0;
+						box[i - 1][j].i *= 2;
+					}
+					else if (box[i - 1][j].i == 0)
+					{
+						box[i - 1][j].i = box[i][j].i;
+						box[i][j].i = 0;
+					}
+				}
+				else 
+
+			}
+		}
+	}
+	else if (key == 40)/*об*/
+	{
+		for (int j = 0; j < 4; j++)
+		{
+			for (int i = 0; i < 3; i++)
+			{
+				if (box[i][j].i)
+				{
+					if (box[i + 1][j].i == box[i][j].i)
+					{
+						box[i][j].i = 0;
+						box[i + 1][j].i *= 2;
+					}
+					else if (box[i + 1][j].i == 0)
+					{
+						box[i + 1][j].i = box[i][j].i;
+						box[i][j].i = 0;
+					}
+				}
+			}
+		}
+	}
+	else
+		return;
+	boxcreate();
 	Drawinitial();
+}
+void boxcreate()
+{
+	int i, j;
+	i = RandomInteger(0, 3);
+	j = RandomInteger(0, 3);
+	while (box[i][j].i != 0)
+	{
+		i = RandomInteger(0, 3);
+		j = RandomInteger(0, 3);
+	}
+	box[i][j].i = 2;
 }

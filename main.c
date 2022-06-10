@@ -40,30 +40,4 @@ void Main()
 	
 }
 
-/*void changes()
-{
-	switch (station)
-	{
-	case 1:
-		//initUI();
-		registerMouseEvent(enter);
-		break;
 
-	case 2:
-		//initLogin();
-		registerKeyboardEvent(enter);
-		break;
-	case 3:
-		//initGame();
-		break;
-	case 4:
-		//initRanking();
-		registerKeyboardEvent(enter);
-		break;
-	case 5:
-		//initHelp();
-		break;
-	default:
-		break;
-	}
-}*/

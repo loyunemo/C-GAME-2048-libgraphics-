@@ -35,5 +35,6 @@ void DrawSquare512(int k, int q);
 void DrawSquare1024(int k, int q);
 void Drawinitial();
 void logic(int key);
+void boxcreate();
 #endif // !_game_h
 
