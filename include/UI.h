@@ -13,7 +13,7 @@
 #include "fundamental.h"
 void change(int x, int y, int button, int event);
 void initUI();
-static void menu();
+
 void settings();
 void ranking();
 static void startGame();

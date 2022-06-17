@@ -3,6 +3,7 @@
 #include <graphics.h>
 #include <extgraph.h>
 boxset box[4][4];
+int judge;
 double getboxx(int q)
 {
 	double x;
@@ -349,107 +350,229 @@ void Drawinitial()
 	}
 }
 
-void logic(int key)
+void logic(int key,int event)
 {
-	if (key == 39)/*右*/
+	judge = 0;
+	{if (key == 39&&event==KEY_UP)/*右*/
 	{
 		for (int i = 0; i < 4; i++)
 		{
+			for (int j=3;j>=0; j--)/*去掉0*/
+			{
+				for (int k = j; k < 3; k++)
+				{
+					if (box[i][k + 1].i == 0)
+					{
+						if(box[i][k].i!=0)
+						{
+							judge = 1;
+						}
+						box[i][k + 1].i = box[i][k].i;
+						box[i][k].i = 0;
+					}
+					
+				}
+
+			}
+			
+			for (int j = 3; j >= 1; j--)
+			{
+				if (box[i][j].i == box[i][j - 1].i)
+				{
+					if (box[i][j].i != 0)
+					{
+						judge = 1;
+					}
+					box[i][j].i *= 2;
+					box[i][j - 1].i = 0;
+					
+				}
+			}
+			for (int j = 3; j >= 0; j--)/*去掉0*/
+			{
+				for (int k = j; k < 3; k++)
+				{
+					if (box[i][k + 1].i == 0)
+					{
+						box[i][k + 1].i = box[i][k].i;
+						box[i][k].i = 0;
+					}
+
+				}
+
+			}
+		}
+		
+		
+	}
+	else if (key == 37 && event == KEY_UP)/*左*/
+	{
+		for (int i = 0; i < 4; i++)
+		{
+			for (int j = 0; j <= 3; j++)/*去掉0*/
+			{
+				for (int k = j; k > 0; k--)
+				{
+					if (box[i][k - 1].i == 0)
+					{
+						if (box[i][k].i != 0)
+						{
+							judge = 1;
+						}
+						box[i][k - 1].i = box[i][k].i;
+						box[i][k].i = 0;
+						
+					}
+
+				}
+			}
 			for (int j = 0; j < 3; j++)
 			{
-				if (box[i][j].i)
+					if (box[i][j].i == box[i][j + 1].i)
+					{
+						if (box[i][j].i != 0)
+						{
+							judge = 1;
+						}
+						box[i][j].i *= 2;
+						box[i][j + 1].i = 0;
+						
+					}
+				
+				}
+			for (int j = 0; j <= 3; j++)/*去掉0*/
+			{
+				for (int k = j; k > 0; k--)
 				{
-					if (box[i][j + 1].i == box[i][j].i)
+					if (box[i][k - 1].i == 0)
+					{
+					box[i][k - 1].i = box[i][k].i;
+					box[i][k].i = 0;
+					}
 
-					{
-						box[i][j].i = 0;
-						box[i][j + 1].i *= 2;
-					}
-					else if (box[i][j + 1].i == 0)
-					{
-						box[i][j + 1].i = box[i][j].i;
-						box[i][j].i = 0;
-					}
 				}
 			}
-		}
+
 	}
-	else if (key == 37)/*左*/
+
+	}
+	else if (key == 40 && event == KEY_UP)/*下*/
 	{
 		for (int i = 0; i < 4; i++)
 		{
-			for (int j = 3; j > 0; j--)
+			for (int j = 3; j >= 0; j--)/*去掉0*/
 			{
-				if (box[i][j].i)
+				for (int k = j; k < 3; k++)
 				{
-					if (box[i][j].i == box[i][j - 1].i)
+					if (box[k+1][i].i == 0)
 					{
-						box[i][j].i = 0;
-						box[i][j - 1].i *= 2;
+						if (box[k][i].i != 0)
+						{
+							judge = 1;
+						}
+						box[k + 1][i].i = box[k][i].i;
+						box[k][i].i = 0;
+						
 					}
-					else if (box[i][j - 1].i == 0)
+
+				}
+
+			}
+
+			for (int j = 3; j >= 1; j--)
+			{
+				if (box[j][i].i == box[j-1][i].i)
+				{
+					if (box[j][i].i != 0)
 					{
-						box[i][j - 1].i = box[i][j].i;
-						box[i][j].i = 0;
+						judge = 1;
 					}
+					box[j][i].i *= 2;
+					box[j-1][i].i = 0;
+					
 				}
 			}
-		}
-	}
-	else if (key == 38)/*上*/
-	{
-		for (int j = 0; j < 4; j++)
-		{
-			for (int i = 3; i > 0; i--)
+			for (int j = 3; j >= 0; j--)/*去掉0*/
 			{
-				if (box[i][j].i)
+				for (int k = j; k < 3; k++)
 				{
-					if (box[i - 1][j].i == box[i][j].i)
+					if (box[k+1][i].i == 0)
 					{
-						box[i][j].i = 0;
-						box[i - 1][j].i *= 2;
+						box[k+1][i].i = box[k][i].i;
+						box[k][i].i = 0;
 					}
-					else if (box[i - 1][j].i == 0)
-					{
-						box[i - 1][j].i = box[i][j].i;
-						box[i][j].i = 0;
-					}
+
 				}
-				else 
 
 			}
 		}
+
+
 	}
-	else if (key == 40)/*下*/
+	else if (key == 38 && event == KEY_UP)/*上*/
 	{
-		for (int j = 0; j < 4; j++)
-		{
-			for (int i = 0; i < 3; i++)
+		
+			for (int i = 0; i < 4; i++)
 			{
-				if (box[i][j].i)
+				for (int j = 0; j <= 3; j++)/*去掉0*/
 				{
-					if (box[i + 1][j].i == box[i][j].i)
+					for (int k = j; k > 0; k--)
 					{
-						box[i][j].i = 0;
-						box[i + 1][j].i *= 2;
+						if (box[k-1][i].i == 0)
+						{
+							if (box[k][i].i != 0)
+							{
+								judge = 1;
+							}
+							box[k-1][i].i = box[k][i].i;
+							box[k][i].i = 0;
+					
+						}
+
 					}
-					else if (box[i + 1][j].i == 0)
+				}
+				for (int j = 0; j < 3; j++)
+				{
+					if (box[j][i].i == box[j+1][i].i)
 					{
-						box[i + 1][j].i = box[i][j].i;
-						box[i][j].i = 0;
+						if (box[j][i].i != 0)
+						{
+							judge = 1;
+						}
+						box[j][i].i *= 2;
+						box[j+1][i].i = 0;
+					
+					}
+
+				}
+				for (int j = 0; j <= 3; j++)/*去掉0*/
+				{
+					for (int k = j; k > 0; k--)
+					{
+						if (box[k-1][i].i == 0)
+						{
+							box[k-1][i].i = box[k][i].i;
+							box[k][i].i = 0;
+						}
+
 					}
 				}
 			}
-		}
 	}
 	else
-		return;
-	boxcreate();
+		return; }
+	if (judge == 1)
+	{
+		boxcreate();
+	}
+	judge = 0;
 	Drawinitial();
 }
 void boxcreate()
 {
+	Randomize();
 	int i, j;
+	int randomx;
 	i = RandomInteger(0, 3);
 	j = RandomInteger(0, 3);
 	while (box[i][j].i != 0)
@@ -457,5 +580,50 @@ void boxcreate()
 		i = RandomInteger(0, 3);
 		j = RandomInteger(0, 3);
 	}
-	box[i][j].i = 2;
+	randomx=((RandomChance(0.5)) ? 2 : 4);
+	box[i][j].i = randomx;
+	return;
 }
+void gameover()
+{
+	int judgeg;
+	judgeg = 0;
+	for (int i = 0; i < 4; i++)
+	{
+		for (int j = 0; j < 4; j++)
+		{
+			if (box[i][j].i == 0)
+				judgeg = 1;
+
+		}
+
+	}
+	for (int i = 0; i < 4; i++)
+	{
+		for (int j = 0; j < 3; j++)
+		{
+			if (box[i][j].i == box[i][j + 1].i)
+				judgeg = 1;
+
+		}
+		
+	}
+	for (int i = 0; i < 4; i++)
+	{
+		for (int j = 0; j < 3; j++)
+		{
+			if (box[j][i].i == box[j][i].i)
+				judgeg = 1;
+
+		}
+
+	}
+	if (!judgeg)
+	{
+		mode(1);
+		cancelKeyboardEvent();
+
+	}
+	return;
+}
+

@@ -31,17 +31,12 @@ void initUI()
 {
 	
 	/*InitGraphics();*/
-	/*menu();*/
+	
 	settings();
 	/*ranking();*/
 	startGame();
 }
- static void menu()
-{
-	MovePen(0.01, GetWindowHeight() - 0.2);
-	DrawTextString("菜单");
-	MovePen(0, 0);
-}
+
 static void settings()
 {
 	SetPenColor("Green");
@@ -159,9 +154,6 @@ void enter(int x,int y,int button, int event )
 	{
 		RefreshWindow();
 		SetPenColor("White");
-		/*menufontarea();
-		MovePen(0.01, GetWindowHeight() - 0.2);
-		DrawTextString("菜单");*/
 		DrawBox();
 	}
 }
@@ -189,20 +181,20 @@ void changes()
 {
 	switch (station)
 	{
-	case 1:
+	case 1://登录界面
 		//initUI();
 		cancelMouseEvent();
 		registerMouseEvent(enter);
 		break;
 
-	case 2:
+	case 2://游戏
 		InitGraphics();
 		
 		DrawGameArea(4);
 		Drawinitial();
 		registerKeyboardEvent(logic);
 		cancelMouseEvent();//*registerKeyboardEvent(enter);*//
-
+		gameover();
 		break;
 	case 3:
 		//initGame();
