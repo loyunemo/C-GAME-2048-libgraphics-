@@ -3,6 +3,7 @@
 #include <string.h>
 #include <graphics.h>
 #include <extgraph.h>
+extern int score;
 void DrawBox()/*»­µÇÂ¼°´Å¥µÄ*/
 {
 	string store;
@@ -135,4 +136,26 @@ void Draw8()
 	MovePenR(GetWindowWidth() / 14, 0);
 	MovePen(0, 0);
 }
+void Drawscore()
+{
 	
+	SetPenColor("White");
+	MovePen(-GetWindowHeight() / 3 + GetWindowWidth() / 2, GetWindowHeight() * 5.0 / 6+0.1);
+	StartFilledRegion(1.0);
+	DrawLine(0, GetWindowHeight() / 6-0.1);
+	DrawLine(GetWindowHeight() / 3.0 * 2, 0);
+	DrawLine(0, -GetWindowHeight() / 6+0.1);
+	DrawLine(-GetWindowHeight() / 3.0 * 2, 0);
+	EndFilledRegion();
+	MovePen(GetWindowWidth()/2-GetWindowHeight()/3, GetWindowHeight() / 8.0 * 7.0);
+	
+
+	SetPenColor("Red");
+	SetPointSize(GetPointSize() * 7);
+	string a;
+	a = (char*)malloc(sizeof(char) * 10);
+	sprintf(a, "Score: %d", score);
+	DrawTextString(a);
+	SetPenColor("Black");
+	SetPointSize(GetPointSize() / 7);
+}

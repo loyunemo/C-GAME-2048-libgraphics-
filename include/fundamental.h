@@ -14,4 +14,5 @@ void Draw0();
 void Draw4();
 
 void Draw8();
+void Drawscore();
 #endif // !_fundamental_h

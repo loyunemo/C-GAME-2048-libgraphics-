@@ -48,9 +48,6 @@
     <ClInclude Include="include\game.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="include\map.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="libgraphics\exceptio.c">
@@ -80,9 +77,6 @@
     <ClCompile Include="libgraphics\fundamental.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="libgraphics\map.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="libgraphics\game.c">
       <Filter>源文件</Filter>
     </ClCompile>
@@ -98,6 +92,9 @@
     <None Include="x64\Debug\vc143.pdb" />
     <None Include="function-instruction.md" />
     <None Include="README.md" />
+    <None Include="x64\Debug\ui.obj.enc" />
+    <None Include="game-struct.md" />
+    <None Include="x64\Debug\game.obj.enc" />
   </ItemGroup>
   <ItemGroup>
     <Object Include="x64\Debug\exceptio.obj" />
@@ -107,6 +104,9 @@
     <Object Include="x64\Debug\random.obj" />
     <Object Include="x64\Debug\simpio.obj" />
     <Object Include="x64\Debug\strlib.obj" />
+    <Object Include="x64\Debug\UI.obj" />
+    <Object Include="x64\Debug\fundamental.obj" />
+    <Object Include="x64\Debug\game.obj" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="x64\Debug\mygame(lib).log" />

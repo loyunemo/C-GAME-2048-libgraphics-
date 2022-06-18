@@ -1,3 +1,10 @@
-﻿  game.c
-D:\learning\C程大作业游戏\mygame（libgraphics）\mygame(lib)\libgraphics\game.c(354,1): warning C4029: 声明的形参表不同于定义
+﻿  UI.c
+D:\learning\C程大作业游戏\mygame（libgraphics）\mygame(lib)\libgraphics\UI.c(144,30): warning C4113: “void (__cdecl *)(int)”和“KeyboardEventCallback”的参数列表不同
+D:\learning\C程大作业游戏\mygame（libgraphics）\mygame(lib)\libgraphics\UI.c(186,12): warning C4098: “rank”:“void”函数返回值
+D:\learning\C程大作业游戏\mygame（libgraphics）\mygame(lib)\libgraphics\UI.c(204,12): warning C4098: “readrank”:“void”函数返回值
+D:\learning\C程大作业游戏\mygame（libgraphics）\mygame(lib)\libgraphics\UI.c(233,42): warning C4047: “=”:“string *”与“char *”的间接级别不同
+D:\learning\C程大作业游戏\mygame（libgraphics）\mygame(lib)\libgraphics\UI.c(239,15): warning C4047: “函数”:“char *const ”与“string *”的间接级别不同
+D:\learning\C程大作业游戏\mygame（libgraphics）\mygame(lib)\libgraphics\UI.c(239,12): warning C4024: “sprintf”: 形参和实参 1 的类型不同
+D:\learning\C程大作业游戏\mygame（libgraphics）\mygame(lib)\libgraphics\UI.c(241,22): warning C4047: “函数”:“string”与“string *”的间接级别不同
+D:\learning\C程大作业游戏\mygame（libgraphics）\mygame(lib)\libgraphics\UI.c(241,19): warning C4024: “DrawTextString”: 形参和实参 1 的类型不同
   mygame(lib).vcxproj -> D:\learning\C程大作业游戏\mygame（libgraphics）\mygame(lib)\x64\Debug\mygame(lib).exe

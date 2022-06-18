@@ -149,7 +149,6 @@
     <ClInclude Include="include\gcalloc.h" />
     <ClInclude Include="include\genlib.h" />
     <ClInclude Include="include\graphics.h" />
-    <ClInclude Include="include\map.h" />
     <ClInclude Include="include\random.h" />
     <ClInclude Include="include\simpio.h" />
     <ClInclude Include="include\strlib.h" />
@@ -161,7 +160,6 @@
     <ClCompile Include="libgraphics\game.c" />
     <ClCompile Include="libgraphics\genlib.c" />
     <ClCompile Include="libgraphics\graphics.c" />
-    <ClCompile Include="libgraphics\map.c" />
     <ClCompile Include="libgraphics\random.c" />
     <ClCompile Include="libgraphics\simpio.c" />
     <ClCompile Include="libgraphics\strlib.c" />
@@ -170,24 +168,30 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="function-instruction.md" />
+    <None Include="game-struct.md" />
     <None Include="README.md" />
+    <None Include="x64\Debug\game.obj.enc" />
     <None Include="x64\Debug\graphics.obj.enc" />
     <None Include="x64\Debug\main.obj.enc" />
     <None Include="x64\Debug\mygame(lib).exe" />
     <None Include="x64\Debug\mygame(lib).exe.recipe" />
     <None Include="x64\Debug\mygame(lib).ilk" />
     <None Include="x64\Debug\mygame(lib).pdb" />
+    <None Include="x64\Debug\ui.obj.enc" />
     <None Include="x64\Debug\vc143.idb" />
     <None Include="x64\Debug\vc143.pdb" />
   </ItemGroup>
   <ItemGroup>
     <Object Include="x64\Debug\exceptio.obj" />
+    <Object Include="x64\Debug\fundamental.obj" />
+    <Object Include="x64\Debug\game.obj" />
     <Object Include="x64\Debug\genlib.obj" />
     <Object Include="x64\Debug\graphics.obj" />
     <Object Include="x64\Debug\main.obj" />
     <Object Include="x64\Debug\random.obj" />
     <Object Include="x64\Debug\simpio.obj" />
     <Object Include="x64\Debug\strlib.obj" />
+    <Object Include="x64\Debug\UI.obj" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="x64\Debug\mygame(lib).log" />

@@ -18,7 +18,7 @@
 #include <ole2.h>
 #include <ocidl.h>
 #include <winuser.h>
-#include "include/map.h"
+
 #include "include/fundamental.h"
 #include <math.h>
 #include "include/UI.h"
@@ -28,7 +28,8 @@ extern int station;
 void Main()
 {
 	InitGraphics();
-	initUI(); 
+	SetWindowTitle("2048");
+	initUI();
 	statisticload(4);
 	initialSquare();
 	MovePen(GetWindowHeight() * 3.0 / 4, GetWindowHeight() * 3.0 / 4);

@@ -2,7 +2,13 @@
 #include <random.h>
 #include <graphics.h>
 #include <extgraph.h>
+#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+#include<Windows.h>
+#include<UI.h>
 boxset box[4][4];
+int score;
 int judge;
 double getboxx(int q)
 {
@@ -384,6 +390,7 @@ void logic(int key,int event)
 						judge = 1;
 					}
 					box[i][j].i *= 2;
+					score += box[i][j].i;
 					box[i][j - 1].i = 0;
 					
 				}
@@ -436,7 +443,7 @@ void logic(int key,int event)
 						}
 						box[i][j].i *= 2;
 						box[i][j + 1].i = 0;
-						
+						score += box[i][j].i;
 					}
 				
 				}
@@ -489,7 +496,7 @@ void logic(int key,int event)
 					}
 					box[j][i].i *= 2;
 					box[j-1][i].i = 0;
-					
+					score += box[j][i].i;
 				}
 			}
 			for (int j = 3; j >= 0; j--)/*È¥µô0*/
@@ -541,7 +548,7 @@ void logic(int key,int event)
 						}
 						box[j][i].i *= 2;
 						box[j+1][i].i = 0;
-					
+						score += box[j][i].i;
 					}
 
 				}
@@ -567,6 +574,7 @@ void logic(int key,int event)
 	}
 	judge = 0;
 	Drawinitial();
+	Drawscore();
 }
 void boxcreate()
 {
@@ -612,7 +620,7 @@ void gameover()
 	{
 		for (int j = 0; j < 3; j++)
 		{
-			if (box[j][i].i == box[j][i].i)
+			if (box[j+1][i].i == box[j][i].i)
 				judgeg = 1;
 
 		}
@@ -620,9 +628,22 @@ void gameover()
 	}
 	if (!judgeg)
 	{
-		mode(1);
+		
+		mode(3);
+		statisticload(4);
+		Sleep(1000);
+		MovePen(0, 0);
+		SetPenColor("White");
+		StartFilledRegion(1);
+		DrawLine(0, GetWindowHeight());
+		DrawLine(GetWindowWidth(), 0);
+		DrawLine(0, -GetWindowHeight());
+		DrawLine(-GetWindowWidth(), 0);
+		EndFilledRegion();
+		DrawTextString("GAMEOVER!");
+		SetPenColor("Black");
 		cancelKeyboardEvent();
-
+		/*initUI();*/
 	}
 	return;
 }

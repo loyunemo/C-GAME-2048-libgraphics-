@@ -11,6 +11,11 @@
 #include "gcalloc.h"
 #include "graphics.h"
 #include "fundamental.h"
+typedef struct inf
+{
+	char name[20];
+	int score;
+}info;
 void change(int x, int y, int button, int event);
 void initUI();
 
@@ -21,4 +26,7 @@ void enter(int x,int y,int button, int event);
 void menufontarea();
 void mode(int i);
 void changes();
+void rank();
+void readrank();
+void name(int key, int event);
 #endif 
